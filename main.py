@@ -9,14 +9,18 @@ app.config['DEBUG'] = True
 # the App Engine WSGI application server.
 
 
-@app.route('/')
+@app.route('/hello')
 def hello():
     """Return a friendly HTTP greeting."""
     return 'Hello World!'
 
-@app.route('/form')
-def form():
-    return render_template('form.html')
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+@app.route('/service')
+def service():
+    return render_template('service.html')
 
 @app.route('/submitted', methods=['POST'])
 def submitted_form():
