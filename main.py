@@ -18,7 +18,7 @@ def hello():
 def index():
     return render_template('index.html')
 
-@app.route('/service')
+@app.route('/service', methods=['POST'])
 def service():
     return render_template('service.html')
 
