@@ -22,16 +22,19 @@ def index():
 def service():
     return render_template('service.html')
 
+@app.route('/login', methods=['POST'])
+def login():
+    return render_template('login.html')
+
 @app.route('/submitted', methods=['POST'])
 def submitted_form():
     name = request.form['name']
     email = request.form['email']
-    site = request.form['site_url']
     comments = request.form['comments']
     return render_template('submitted_form.html',
+        site = request.form['site_url'],
         name=name,
         email=email,
-        site=site,
         comments=comments
     )
 
