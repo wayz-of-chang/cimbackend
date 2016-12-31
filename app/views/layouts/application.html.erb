@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<title>Church in McKinney Backend</title>
+    <%= csrf_meta_tags %>
+
+    <link rel="stylesheet" href="/css/materialize.min.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+	<script type="text/javascript" src="/js/jquery-3.1.1.js"></script>
+	<script type="text/javascript" src="/js/materialize.js"></script>
+	<script type="text/javascript" src="/js/riot+compiler.js"></script>
+	<script type="text/javascript" src="/js/riotcontrol.js"></script>
+	<script type="text/javascript" src="/js/commonStore.js"></script>
+  </head>
+
+  <body>
+	<header-tag></header-tag>
+	<content-tag><%= yield %></content-tag>
+
+	<script type="riot/tag" src="/js/riot/header-tag.js"></script>
+	<script type="riot/tag" src="/js/riot/content-tag.js"></script>
+
+	<script type="text/javascript">
+		var store = new CommonStore();
+		RiotControl.addStore(store);
+
+		riot.mount('*');
+	</script>
+  </body>
+</html>
