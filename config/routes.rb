@@ -1,14 +1,15 @@
 Rails.application.routes.draw do
-  get "/login" => 'login#index'
-
-  get "/directory" => 'directory#index'
-
-  get "/registration" => 'registration#index'
-
-  get "/service" => 'service#index'
-
-  get "/" => 'home#index'
+  resources :users
+  resources :directory
+  resources :registration
+  resources :service
   
+  resources :login do
+    member do
+	  post 'authenticate'
+	end
+  end
+
   root 'home#index'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

@@ -10,6 +10,8 @@
 
     <script>
         var self = this;
+        
+        self.store = opts.store;
 
         self.sections = ['Service', 'Registration', 'Directory', 'Login'];
 
@@ -18,7 +20,14 @@
             $.ajax("/" + section.toLowerCase(), {
                 method: "GET",
                 success: function(data, status, xhr) {
-                    RiotControl.trigger('set_contents', {contents: data});
+                    //RiotControl.trigger('set_contents', {ref: section.toLowerCase() + '_contents', contents: data});
+                    for (var i = 0; i < self.sections.length; i++) {
+						if (section == self.sections[i]) {
+							RiotControl.trigger('show', {ref: self.sections[i].toLowerCase() + '_contents'});
+						} else {
+							RiotControl.trigger('hide', {ref: self.sections[i].toLowerCase() + '_contents'});
+						}
+					}
                     //riot.route("/" + section.toLowerCase(), section);
                 },
                 error: function(xhr, status, error) {

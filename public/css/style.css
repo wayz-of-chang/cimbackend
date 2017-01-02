@@ -8,10 +8,10 @@
 
 .contents {
     position: absolute;
-    top: 64;
+    top: 64px;
     left: 0;
     right: 0;
-    bottom: 0;
+    bottom: 5px;
 }
 
 .contents object {
