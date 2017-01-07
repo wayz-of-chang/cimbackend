@@ -4,7 +4,10 @@ class LoginController < ApplicationController
   end
   
   def authenticate
-	p params
-	render :json => params
+	status = false
+	if User.find_by(:username => params["username"]).try(:authenticate, params["password"])
+		status = true
+	end
+	render :json => {:status => status}
   end
 end

@@ -3,12 +3,9 @@ Rails.application.routes.draw do
   resources :directory
   resources :registration
   resources :service
+  resources :login
   
-  resources :login do
-    member do
-	  post 'authenticate'
-	end
-  end
+  post 'login/authenticate' => 'login#authenticate'
 
   root 'home#index'
 
