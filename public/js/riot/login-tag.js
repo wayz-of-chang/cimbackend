@@ -33,6 +33,7 @@
 
         self.submit_login = function(e) {
             RiotControl.trigger('login', {username: $('#username').val(), password: $('#password').val()});
+            return false;
         };
         
         RiotControl.on('login_response', function(data) {
