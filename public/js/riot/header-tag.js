@@ -2,9 +2,13 @@
     <nav>
         <div class="nav-wrapper">
             <a href="/" class="brand-logo"><i class="material-icons"></i>Church in McKinney Backend</a>
+			<a href="#" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li each="{ section, i in get_sections() }"><a href="" onclick={ go_to }>{ sections[authenticated()][section].label }</a></li>
             </ul>
+			<ul class="side-nav" id="mobile-menu">
+				<li each="{ section, i in get_sections() }"><a href="" onclick={ go_to }>{ sections[authenticated()][section].label }</a></li>
+			</ul>
         </div>
     </nav>
 
@@ -16,10 +20,10 @@
         self.sections = {
 			'authenticated': {
 				'Service': {
-					'label': 'Service'
+					'label': 'Service Schedule'
 				}, 
-				'Registration': {
-					'label': 'Registration'
+				'Announcement': {
+					'label': 'Announcements'
 				}, 
 				'Directory': {
 					'label': 'Directory'
@@ -49,6 +53,10 @@
 
         self.go_to = function(e) {
             var section = e.item.section;
+			self._go_to(section);
+        };
+		
+		self._go_to = function(section) {
             $.ajax("/" + section.toLowerCase(), {
                 method: "GET",
                 success: function(data, status, xhr) {
@@ -67,10 +75,21 @@
                     console.log("Error encountered: " + error);
                 }
             });
-        };
+		};
 
         RiotControl.on('login_response', function(data) {
 			self.update();
+		});
+		
+		self.on('mount', function() {
+			$(self.root.querySelector('.button-collapse')).sideNav({
+				edge: 'left',
+				closeOnClick: true,
+				draggable: true
+			});
+			if (self.authenticated() == 'unauthenticated') {
+				self._go_to('Login');
+			}
 		});
     </script>
 </header-tag>

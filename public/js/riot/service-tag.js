@@ -13,9 +13,17 @@
 		</ul>
 	</div>
 	<input show={ false } id="service_fileupload" type="file" name="files[]" data-url="/service/upload" multiple>
-  	<object data="/McKinney LD Service Schedule.pdf" class="s12">
-		alt : <a href="/McKinney LD Service Schedule.pdf">Service Schedule</a>
-	</object>
+  	<iframe style="display: flex; flex-grow: 1; width: 100%; height: 100%;" src="https://docs.google.com/spreadsheets/d/1QYTWY2zUc_AS9D3PQZpa6Q8ie3KzcdZWRyot343MnAY/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false">
+	</iframe>
+	
+	<style>
+		service-tag iframe {
+			display: flex;
+			flex-grow: 1;
+			width: 100%;
+			height: 100%;
+		}
+	</style>
 
     <script>
         var self = this;
