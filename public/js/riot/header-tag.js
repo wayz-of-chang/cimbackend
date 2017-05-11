@@ -59,14 +59,15 @@
 		self._go_to = function(section) {
             $.ajax("/" + section.toLowerCase(), {
                 method: "GET",
+				contentType: "json",
                 success: function(data, status, xhr) {
                     //RiotControl.trigger('set_contents', {ref: section.toLowerCase() + '_contents', contents: data});
                     var sections = Object.keys(self.sections[self.authenticated()]);
                     for (var i = 0; i < sections.length; i++) {
 						if (section == sections[i]) {
-							RiotControl.trigger('show', {ref: sections[i].toLowerCase() + '_contents'});
+							RiotControl.trigger('show', {ref: sections[i].toLowerCase() + '_contents', args: data});
 						} else {
-							RiotControl.trigger('hide', {ref: sections[i].toLowerCase() + '_contents'});
+							RiotControl.trigger('hide', {ref: sections[i].toLowerCase() + '_contents', args: data});
 						}
 					}
                     //riot.route("/" + section.toLowerCase(), section);

@@ -9,7 +9,6 @@
         self.visible = false;
 
         RiotControl.on('set_contents', function(data) {
-			console.log(data);
 			if (data == undefined || (data != undefined && data.ref == self.ref)) {
 				self.root.children[0].innerHTML = data.contents;
 				self.update();
@@ -19,6 +18,8 @@
         RiotControl.on('show', function(data) {
 			if (data == undefined || (data != undefined && data.ref == self.ref)) {
 				self.visible = true;
+				var child = Object.keys(self.tags);
+				self.tags[child[0]].update_contents(data.args);
 				self.update();
 			}
 		});

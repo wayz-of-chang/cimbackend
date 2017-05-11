@@ -36,6 +36,10 @@
             return false;
         };
         
+		self.update_contents = function(args) {
+			console.log(args);
+		};
+
         RiotControl.on('login_response', function(data) {
 			self.status_message = data.message;
 			self.update();

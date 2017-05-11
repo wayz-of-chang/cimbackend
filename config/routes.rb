@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :users
   resources :directory
-  resources :registration
+  resources :announcement
   resources :service
   resources :login
   
