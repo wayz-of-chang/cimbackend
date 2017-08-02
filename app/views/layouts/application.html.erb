@@ -33,6 +33,7 @@
 	<script type="riot/tag" src="/js/riot/directory-tag.js"></script>
 
 	<script type="text/javascript">
+		var AUTHENTICATED = <%= valid_user ? 'true' : 'false' %>;
 		var store = new CommonStore();
 		RiotControl.addStore(store);
 

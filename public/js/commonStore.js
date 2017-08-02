@@ -3,7 +3,7 @@ function CommonStore() {
 
     var self = this;
 
-    self.authenticated = false;
+    self.authenticated = AUTHENTICATED || false;
     self.token = undefined;
 
     self.on('login', function(data) {

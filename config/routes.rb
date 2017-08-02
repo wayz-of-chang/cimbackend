@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
+
   resources :users
   resources :directory
   resources :announcement
   resources :service
   resources :login
-  
+
   post 'login/authenticate' => 'login#authenticate'
 
   root 'home#index'
