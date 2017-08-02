@@ -14,7 +14,7 @@ default: &default
   timeout: 5000
 
 development:
-  <<: *default
+  adapter: sqlite3
   database: cimbackend
 
 # Warning: The database defined as "test" will be erased and

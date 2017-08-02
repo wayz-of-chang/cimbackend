@@ -1,24 +1,33 @@
-# README
+# CIM-Backend
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Installing and Running
 
-Things you may want to cover:
+On a Linux machine
 
-* Ruby version
+```
+$ apt-get install ruby ruby-dev
+$ gem install rails
+$ bundle install
+```
+Run initial migration
+```
+# on dev server
+$ rails db:migrate RAILS_ENV=development
+# otherwise
+$ rails db:migrate RAILS_ENV=production
+```
 
-* System dependencies
+Create your first user
+```
+# Start rails command line
+$ rails c
+# In Ruby console
+> user=User.create!(:email=>'test@test.com',:username=>'test',:password=>'password')
+# Quit Ruby console
+> quit
+```
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Run Ruby on Rails
+```
+$ rails server
+```
