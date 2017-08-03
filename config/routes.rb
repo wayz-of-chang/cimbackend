@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :login
 
   post 'login/authenticate' => 'login#authenticate'
+  get 'logout' => 'login#logout'
 
   root 'home#index'
 

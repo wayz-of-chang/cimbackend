@@ -28,7 +28,7 @@
                 'Directory': {
                     'label': 'Directory'
                 },
-                'Login': {
+                'Logout': {
                     'label': 'Logout'
                 }
             },
