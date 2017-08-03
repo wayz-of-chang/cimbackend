@@ -1,1 +1,7 @@
-
+<% content_for :content do %>
+	<content-tag ref="login_contents"><login-tag></login-tag></content-tag>
+<% end %>
+<% content_for :riot_scripts do %>
+	<script type="riot/tag" src="/js/riot/login-tag.js"></script>
+<% end %>
+<%= render template: "layouts/application" %>

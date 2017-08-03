@@ -20,17 +20,10 @@
 
   <body>
 	<header-tag></header-tag>
-	<content-tag ref="login_contents"><login-tag></login-tag></content-tag>
-	<content-tag ref="directory_contents"><directory-tag></directory-tag></content-tag>
-	<content-tag ref="announcement_contents"><announcement-tag></announcement-tag></content-tag>
-	<content-tag ref="service_contents"><service-tag></service-tag></content-tag>
+	<%= content_for?(:content) ? yield(:content) : yield %>
 
 	<script type="riot/tag" src="/js/riot/header-tag.js"></script>
-	<script type="riot/tag" src="/js/riot/content-tag.js"></script>
-	<script type="riot/tag" src="/js/riot/login-tag.js"></script>
-	<script type="riot/tag" src="/js/riot/service-tag.js"></script>
-	<script type="riot/tag" src="/js/riot/announcement-tag.js"></script>
-	<script type="riot/tag" src="/js/riot/directory-tag.js"></script>
+	<%= content_for?(:riot_scripts) ? yield(:riot_scripts) : yield %>
 
 	<script type="text/javascript">
 		var AUTHENTICATED = <%= valid_user ? 'true' : 'false' %>;

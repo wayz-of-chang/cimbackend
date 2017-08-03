@@ -44,5 +44,9 @@
             self.status_message = data.message;
             self.update();
         });
+
+        self.on('mount', function() {
+            $(self.root.querySelector('#username')).focus();
+        });
     </script>
 </login-tag>

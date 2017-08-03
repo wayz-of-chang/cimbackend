@@ -89,7 +89,7 @@
                 draggable: true
             });
             if (self.authenticated() == 'unauthenticated') {
-                self._go_to('Login');
+                RiotControl.trigger('show', {ref: 'login_contents', args: {}});
             }
         });
     </script>

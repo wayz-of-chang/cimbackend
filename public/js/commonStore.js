@@ -7,7 +7,7 @@ function CommonStore() {
     self.token = undefined;
 
     self.on('login', function(data) {
-        $.ajax("/login/authenticate", {
+        $.ajax("/login", {
             data: data,
             headers: {
                 'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
@@ -17,6 +17,7 @@ function CommonStore() {
                 self.authenticated = data.status;
                 if (self.authenticated) {
                     self.trigger('login_response', {message: 'Logged in successfully'});
+                    window.location = data.url;
                 } else {
                     self.trigger('login_response', {message: 'Failed to log in'});
                 }
@@ -30,21 +31,12 @@ function CommonStore() {
 
     self.on('logout', function(data) {
         $.ajax("/logout", {
-            data: data,
-            headers: {
-                'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
-            },
-            method: "POST",
+            method: "GET",
             success: function(data, status, xhr) {
                 self.authenticated = data.status;
-                if (self.authenticated) {
-                    self.trigger('login_response', {message: 'Logged in successfully'});
-                } else {
-                    self.trigger('login_response', {message: 'Failed to log in'});
-                }
+                window.location = data.url;
             },
             error: function(xhr, status, error) {
-                self.trigger('login_response', {message: error});
                 console.log("Error encountered: " + error);
             }
         });
