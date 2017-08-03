@@ -1,5 +1,5 @@
 class LoginController < ApplicationController
-  skip_before_action :logged_in
+  skip_before_action :logged_in # Allow non-authenticated users to access this page
 
   def index
     render :layout => false
