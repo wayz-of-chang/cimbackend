@@ -20,8 +20,6 @@
 # Ignore Byebug command history file.
 .byebug_history
 
-Gemfile.lock
-
 # Ignore sublime files
 *.sublime-workspace
 *.sublime-project

@@ -9,8 +9,8 @@ default: &default
   encoding: unicode
   database: cimbackend
   pool: 5
-  username: cimbackend
-  password: cimbackend
+  username: postgres
+  password: postgres
   timeout: 5000
 
 development:
