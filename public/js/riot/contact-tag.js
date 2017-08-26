@@ -32,19 +32,6 @@
         };
 
         self.on('mount', function() {
-            var url = '/service/upload';
-            $('#service_fileupload').fileupload({
-                url: url,
-                dataType: 'json',
-                done: function (e, data) {
-                    console.log(data.result.files);
-                },
-                progressall: function (e, data) {
-                    var progress = parseInt(data.loaded / data.total * 100, 10);
-                    console.log(progress);
-                }
-            }).prop('disabled', !$.support.fileInput)
-                .parent().addClass($.support.fileInput ? undefined : 'disabled');
         });
 
     </script>
