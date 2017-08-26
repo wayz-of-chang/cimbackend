@@ -1,13 +1,12 @@
 <header-tag>
-    <nav>
-        <div class="nav-wrapper">
-            <a href="/" class="brand-logo"><i class="material-icons"></i>Church in McKinney Backend</a>
-            <a href="#" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li each="{ section, i in get_sections() }"><a href="" onclick={ go_to }>{ sections[authenticated()][section].label }</a></li>
-            </ul>
-            <ul class="side-nav" id="mobile-menu">
-                <li each="{ section, i in get_sections() }"><a href="" onclick={ go_to }>{ sections[authenticated()][section].label }</a></li>
+    <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Church in McKinney Backend</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle main menu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse float-right" id="navbarMenu">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item" each="{ section, i in get_sections() }"><a class="nav-link" href="" onclick={ go_to }>{ sections[authenticated()][section].label }</a></li>
             </ul>
         </div>
     </nav>
@@ -26,7 +25,7 @@
                     'label': 'Announcements'
                 },
                 'Directory': {
-                    'label': 'Directory'
+                    'label': 'Attendance'
                 },
                 'Logout': {
                     'label': 'Logout'
@@ -83,11 +82,6 @@
         });
 
         self.on('mount', function() {
-            $(self.root.querySelector('.button-collapse')).sideNav({
-                edge: 'left',
-                closeOnClick: true,
-                draggable: true
-            });
             if (self.authenticated() == 'unauthenticated') {
                 RiotControl.trigger('show', {ref: 'login_contents', args: {}});
             }
