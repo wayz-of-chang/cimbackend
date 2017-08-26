@@ -6,7 +6,7 @@
         </button>
         <div class="collapse navbar-collapse float-right" id="navbarMenu">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item" each="{ section, i in get_sections() }"><a class="nav-link" href="" onclick={ go_to }>{ sections[authenticated()][section].label }</a></li>
+                <li class="nav-item" data-toggle="collapse" data-target="#navbarMenu" each="{ section, i in get_sections() }"><a class="nav-link" href="" onclick={ go_to }>{ sections[authenticated()][section].label }</a></li>
             </ul>
         </div>
     </nav>
