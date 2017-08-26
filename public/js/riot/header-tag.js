@@ -21,6 +21,9 @@
                 'Service': {
                     'label': 'Service Schedule'
                 },
+                'Contact': {
+					'label': 'Contact'
+				},
                 'Announcement': {
                     'label': 'Announcements'
                 },
