@@ -3,10 +3,12 @@
 	<content-tag ref="announcement_contents"><announcement-tag></announcement-tag></content-tag>
 	<content-tag ref="contact_contents"><contact-tag></contact-tag></content-tag>
 	<content-tag ref="service_contents"><service-tag></service-tag></content-tag>
+	<content-tag ref="shepherding_contents"><shepherding-tag></shepherding-tag></content-tag>
 	<content-tag ref="logout_contents"><logout-tag></logout-tag></content-tag>
 <% end %>
 <% content_for :riot_scripts do %>
 	<script type="riot/tag" src="/js/riot/content-tag.js"></script>
+	<script type="riot/tag" src="/js/riot/shepherding-tag.js"></script>
 	<script type="riot/tag" src="/js/riot/service-tag.js"></script>
 	<script type="riot/tag" src="/js/riot/contact-tag.js"></script>
 	<script type="riot/tag" src="/js/riot/announcement-tag.js"></script>

@@ -24,6 +24,9 @@
                 'Contact': {
 					'label': 'Contact'
 				},
+                'Shepherding': {
+                    'label': 'Shepherding Groups'
+                },
                 'Announcement': {
                     'label': 'Announcements'
                 },

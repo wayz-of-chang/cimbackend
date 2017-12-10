@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :announcement, :only => [:index]
   resources :service, :only => [:index]
   resources :contact, :only => [:index]
+  resources :shepherding, :only => [:index]
   resources :login, :only => [:index, :create]
 
   get 'logout' => 'login#logout'
